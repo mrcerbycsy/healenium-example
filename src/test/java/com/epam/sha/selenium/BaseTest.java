@@ -16,7 +16,6 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected SelfHealingDriver driver;
-    protected String buttonFoundText = "кнопка найдена!";
 
     @Before
     public void setUp() {

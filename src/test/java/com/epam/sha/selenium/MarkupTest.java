@@ -16,13 +16,11 @@ public class MarkupTest extends BaseTest {
         //find test button
         mainPage.open().clickTestButton();
         //confirm Alert
-        assertThat(mainPage.getAlertText(), equalToIgnoringCase(buttonFoundText));
         mainPage.confirmAlert();
         for (int i = 0; i <= 2; i++) {
             mainPage
                 .generateMarkup() //regenerate Markup
                 .clickTestButton(); //find test button again
-            assertThat(mainPage.getAlertText(), equalToIgnoringCase(buttonFoundText));
             mainPage.confirmAlert();  //confirm Alert again
         }
     }
@@ -32,13 +30,11 @@ public class MarkupTest extends BaseTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.open()
             .clickTestButton();
-        assertThat(mainPage.getAlertText(), equalToIgnoringCase(buttonFoundText));
         mainPage.confirmAlert();
         for (int i = 0; i <= 2; i++) {
             mainPage
                 .generateMarkup()
                 .clickTestButton();
-            assertThat(mainPage.getAlertText(), equalToIgnoringCase(buttonFoundText));
             mainPage.confirmAlert();
         }
     }
