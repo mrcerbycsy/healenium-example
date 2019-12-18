@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 import java.util.concurrent.TimeUnit;
 
 
@@ -19,14 +21,14 @@ public class BaseTest {
 
     @Before
     public void setUp() {
+        ChromeOptions options = new ChromeOptions();
+        options.setHeadless(true);
         //declare delegate
-        WebDriver delegate = new ChromeDriver();
+        WebDriver delegate = new ChromeDriver(options);
         //declare configs for healenium
         Config config = ConfigFactory.load("healenium.properties");
-        //declare engine with delegate and config
-        SelfHealingEngine engine = new SelfHealingEngine(delegate, config);
         //create self-healing driver
-        driver = SelfHealingDriver.create(engine);
+        driver = SelfHealingDriver.create(delegate, config);
         driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
         driver.manage().window().setSize(new Dimension(1200, 800));
     }
