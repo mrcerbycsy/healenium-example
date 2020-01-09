@@ -1,7 +1,6 @@
 package pages;
 
 
-import com.epam.healenium.PageAwareBy;
 import com.epam.healenium.SelfHealingDriver;
 import org.openqa.selenium.By;
 
@@ -24,9 +23,7 @@ public class MainPage extends BasePage {
     }
 
     public MainPage clickTestButton() {
-        //using PageAwareBy to locate the button
-        PageAwareBy by = PageAwareBy.by("MainPage", testButton);
-        driver.findElement(by).click();
+        driver.findElement(testButton).click();
         return this;
     }
 }

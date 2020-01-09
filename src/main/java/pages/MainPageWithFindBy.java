@@ -1,7 +1,6 @@
 package pages;
 
 
-import com.epam.healenium.PageAwareFindBy;
 import com.epam.healenium.SelfHealingDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,8 +11,7 @@ public class MainPageWithFindBy extends BasePage {
     @FindBy(id = "markup-generation-button")
     WebElement generateMarkupBtnId;
 
-    //using PageAwareFindBy to locate the button
-    @PageAwareFindBy(findBy = @FindBy(xpath = "//button[contains(@class,'default-btn')]"))
+    @FindBy(xpath = "//button[contains(@class,'default-btn')]")
     WebElement testButton;
 
     public MainPageWithFindBy(SelfHealingDriver driver) {
