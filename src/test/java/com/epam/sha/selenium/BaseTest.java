@@ -2,7 +2,6 @@ package com.epam.sha.selenium;
 
 
 import com.epam.healenium.SelfHealingDriver;
-import com.epam.healenium.SelfHealingEngine;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import org.junit.After;
@@ -13,7 +12,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
-
 
 
 public class BaseTest {
