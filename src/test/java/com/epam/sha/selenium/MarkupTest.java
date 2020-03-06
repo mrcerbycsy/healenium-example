@@ -50,7 +50,8 @@ public class MarkupTest extends BaseTest {
         //  Wait for spinner to disappear
         mainPage.waitForLoadingSpinnerToDisappear();
         //  Check that spinner is not displayed
-        assertFalse("Spinner is displayed", mainPage.isLoadingSpinnerDisplayed());
+//        assertFalse("Spinner is displayed", mainPage.isLoadingSpinnerDisplayed());
+        assertTrue("Content loaded is not displayed", mainPage.isLoadingContentDisplayed());
     }
 
 }

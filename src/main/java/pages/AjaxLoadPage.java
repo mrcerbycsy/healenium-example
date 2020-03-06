@@ -1,6 +1,7 @@
 package pages;
 
 import com.epam.healenium.SelfHealingDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,9 +14,11 @@ public class AjaxLoadPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='spinner-demo spinner-demo-absolute spinner-demo-add']")
     private WebElement loadingSpinner;
-
+//    private By loadingSpinner1 = By.xpath("//div[@class='spinner-demo spinner-demo-absolute spinner-demo-add']");
     @FindBy(id = "ajax-button")
     private WebElement sendRequestButton;
+//    private By sendRequestButton1 = By.id("ajax-button");
+    private By contentLoaded = By.cssSelector("div#ajax-container");
 
     public AjaxLoadPage(SelfHealingDriver driver) {
         super(driver);
@@ -35,6 +38,15 @@ public class AjaxLoadPage extends BasePage {
     public boolean isLoadingSpinnerDisplayed() {
         try {
             loadingSpinner.isDisplayed();
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    public boolean isLoadingContentDisplayed() {
+        try {
+            driver.findElement(contentLoaded).isDisplayed();
             return true;
         } catch (NoSuchElementException e) {
             return false;
