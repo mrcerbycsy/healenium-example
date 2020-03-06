@@ -14,10 +14,10 @@ public class AjaxLoadPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='spinner-demo spinner-demo-absolute spinner-demo-add']")
     private WebElement loadingSpinner;
-//    private By loadingSpinner1 = By.xpath("//div[@class='spinner-demo spinner-demo-absolute spinner-demo-add']");
+
     @FindBy(id = "ajax-button")
     private WebElement sendRequestButton;
-//    private By sendRequestButton1 = By.id("ajax-button");
+
     private By contentLoaded = By.cssSelector("div#ajax-container");
 
     public AjaxLoadPage(SelfHealingDriver driver) {

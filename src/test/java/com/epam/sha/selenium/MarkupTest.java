@@ -20,8 +20,8 @@ public class MarkupTest extends BaseTest {
         mainPage.confirmAlert();
         for (int i = 0; i <= 2; i++) {
             mainPage
-                    .generateMarkup() //regenerate Markup
-                    .clickTestButton(); //find test button again
+                .generateMarkup() //regenerate Markup
+                .clickTestButton(); //find test button again
             mainPage.confirmAlert();  //confirm Alert again
         }
     }
@@ -30,12 +30,12 @@ public class MarkupTest extends BaseTest {
     public void testButtonClickWithFindElementPage() {
         MainPage mainPage = new MainPage(driver);
         mainPage.open()
-                .clickTestButton();
+            .clickTestButton();
         mainPage.confirmAlert();
         for (int i = 0; i <= 2; i++) {
             mainPage
-                    .generateMarkup()
-                    .clickTestButton();
+                .generateMarkup()
+                .clickTestButton();
             mainPage.confirmAlert();
         }
     }
@@ -50,7 +50,6 @@ public class MarkupTest extends BaseTest {
         //  Wait for spinner to disappear
         mainPage.waitForLoadingSpinnerToDisappear();
         //  Check that spinner is not displayed
-//        assertFalse("Spinner is displayed", mainPage.isLoadingSpinnerDisplayed());
         assertTrue("Content loaded is not displayed", mainPage.isLoadingContentDisplayed());
     }
 
