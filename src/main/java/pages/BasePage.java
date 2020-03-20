@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
     protected String mainPageUrl = "https://sha-test-app.herokuapp.com/";
     protected String ajaxLoadPageUrl = "https://stephanwagner.me/loading-spinner-with-animation";
+    protected String yandexPageUrl = "https://yandex.ru/";
     protected SelfHealingDriver driver;
 
     public BasePage(SelfHealingDriver driver) {

@@ -4,8 +4,7 @@ import org.junit.Test;
 import pages.AjaxLoadPage;
 import pages.MainPage;
 import pages.MainPageWithFindBy;
-
-import static org.junit.Assert.assertFalse;
+import pages.MainPageYandex;
 import static org.junit.Assert.assertTrue;
 
 
@@ -53,4 +52,13 @@ public class MarkupTest extends BaseTest {
         assertTrue("Content loaded is not displayed", mainPage.isLoadingContentDisplayed());
     }
 
+    @Test
+    public void testFindElementWithinParent() {
+        /*
+        Checking the bug: https://github.com/healenium/healenium-web/issues/43
+         */
+        MainPageYandex mainYandex = new MainPageYandex(driver).open();
+        String text = mainYandex.takeTextFromButton();
+        assertTrue("Text doesn't match with expected result", text.equalsIgnoreCase("найти"));
+    }
 }
