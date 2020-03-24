@@ -61,4 +61,19 @@ public class MarkupTest extends BaseTest {
         String text = mainYandex.takeTextFromButton();
         assertTrue("Text doesn't match with expected result", text.equalsIgnoreCase("найти"));
     }
+
+    @Test
+    public void testNotHealWhenUseInvisibilityOf() {
+        /*
+        Checking a bug: https://github.com/healenium/healenium-web/issues/31
+         */
+        MainPageWithFindBy mainPage = new MainPageWithFindBy(driver).open();
+        mainPage
+                .clickTestButton()
+                .confirmAlert();
+        new MainPageYandex(driver).open();
+        assertTrue("The error while checking element invisible",
+                mainPage.checkThatButtonInvisible());
+    }
+
 }

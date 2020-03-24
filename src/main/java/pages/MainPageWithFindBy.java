@@ -5,6 +5,8 @@ import com.epam.healenium.SelfHealingDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainPageWithFindBy extends BasePage {
 
@@ -32,6 +34,15 @@ public class MainPageWithFindBy extends BasePage {
     public MainPageWithFindBy clickTestButton() {
         testButton.click();
         return this;
+    }
+
+    public boolean checkThatButtonInvisible() {
+        try {
+            new WebDriverWait(driver, 1).until(ExpectedConditions.invisibilityOf(testButton));
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }
