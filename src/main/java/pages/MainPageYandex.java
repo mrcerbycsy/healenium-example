@@ -23,7 +23,7 @@ public class MainPageYandex extends BasePage {
 
     public String takeTextFromButton() {
         return searchButton
-                .findElement(By.xpath("//span"))
+                .findElement(By.xpath(".//span"))
                 .getText();
     }
 }
