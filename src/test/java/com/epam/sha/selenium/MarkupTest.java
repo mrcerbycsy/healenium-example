@@ -1,6 +1,6 @@
 package com.epam.sha.selenium;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pages.MainPage;
 import pages.MainPageWithFindBy;
 

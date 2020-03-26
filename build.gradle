@@ -13,11 +13,22 @@ repositories {
         url  "https://dl.bintray.com/epam/healenium"
     }
     mavenCentral()
+
+    jcenter()
+    mavenLocal()
+    maven { url "http://dl.bintray.com/epam/reportportal" }
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.1")
     testCompile group: 'org.hamcrest', name: 'hamcrest-core', version: '2.1'
     compile 'com.epam.healenium:healenium-web:2.0.5'
     testCompile 'com.codeborne:selenide:5.10.0'
+    testCompile 'com.epam.reportportal:agent-java-junit5:4.0.1'
+}
+
+test {
+    useJUnitPlatform()
+//    systemProperty 'junit.jupiter.extensions.autodetection.enabled', true
 }
