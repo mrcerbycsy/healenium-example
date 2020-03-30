@@ -55,7 +55,7 @@ public class ElementsAndActions extends BaseTest {
          */
         MainPageYandex mainYandex = new MainPageYandex(driver).open();
         String text = mainYandex.takeTextFromButton();
-        assertTrue(text.equalsIgnoreCase("Найти"),
+        assertTrue(text.equalsIgnoreCase(""),
                 "The text doesn't match with the expected result");
     }
 
