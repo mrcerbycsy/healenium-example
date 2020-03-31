@@ -2,7 +2,9 @@ package pages;
 
 
 import com.epam.healenium.SelfHealingDriver;
+import com.epam.healenium.annotation.DisableHealing;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -73,6 +75,16 @@ public class MainPageWithFindBy extends BasePage {
 
     public String getAttributeFromTestButton(String attribute) {
         return testButton.getAttribute(attribute);
+    }
+
+    @DisableHealing
+    public boolean checkLocatorTestButtonDontHealing() {
+        try {
+            testButton.click();
+            return false;
+        } catch (NoSuchElementException e) {
+            return true;
+        }
     }
 
 }

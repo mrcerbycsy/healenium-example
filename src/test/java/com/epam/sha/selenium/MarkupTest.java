@@ -4,6 +4,8 @@ import org.junit.Test;
 import pages.MainPage;
 import pages.MainPageWithFindBy;
 
+import static junit.framework.TestCase.assertTrue;
+
 
 public class MarkupTest extends BaseTest {
 
@@ -34,5 +36,17 @@ public class MarkupTest extends BaseTest {
                 .clickTestButton();
             mainPage.confirmAlert();
         }
+    }
+
+    @Test
+    public void testButtonClickWithDisableHealing() {
+        MainPageWithFindBy mainPage = new MainPageWithFindBy(driver);
+        mainPage.open()
+                .clickTestButton()
+                .confirmAlert();
+        boolean result = mainPage
+                .generateMarkup() //regenerate Markup
+                .checkLocatorTestButtonDontHealing(); //find test button again
+        assertTrue("The locator was heal", result);
     }
 }
