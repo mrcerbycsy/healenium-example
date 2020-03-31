@@ -2,7 +2,9 @@ package pages;
 
 
 import com.epam.healenium.SelfHealingDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,6 +17,12 @@ public class MainPageWithFindBy extends BasePage {
 
     @FindBy(xpath = "//button[contains(@class,'default-btn')]")
     WebElement testButton;
+
+    @FindBy(id = "for-invisible-test")
+    WebElement buttonForInvisible;
+
+    @FindBy(id = "field-parent")
+    WebElement fieldParent;
 
     public MainPageWithFindBy(SelfHealingDriver driver) {
         super(driver);
@@ -36,13 +44,35 @@ public class MainPageWithFindBy extends BasePage {
         return this;
     }
 
+    public MainPageWithFindBy clickButtonForInvisible() {
+        buttonForInvisible.click();
+        return this;
+    }
+
     public boolean checkThatButtonInvisible() {
         try {
-            new WebDriverWait(driver, 1).until(ExpectedConditions.invisibilityOf(testButton));
+            new WebDriverWait(driver, 1)
+                    .until(ExpectedConditions.invisibilityOf(buttonForInvisible));
             return true;
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public MainPageWithFindBy hoverOnTestButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(testButton).perform();
+        return this;
+    }
+
+    public String takeValueFromSecondButton() {
+        return fieldParent
+                .findElement(By.xpath(".//input"))
+                .getAttribute("Value");
+    }
+
+    public String getAttributeFromTestButton(String attribute) {
+        return testButton.getAttribute(attribute);
     }
 
 }
