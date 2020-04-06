@@ -1,10 +1,10 @@
 package com.epam.sha.selenium;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pages.MainPage;
 import pages.MainPageWithFindBy;
 
-import static junit.framework.TestCase.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class MarkupTest extends BaseTest {
@@ -47,6 +47,6 @@ public class MarkupTest extends BaseTest {
         boolean result = mainPage
                 .generateMarkup() //regenerate Markup
                 .checkLocatorTestButtonDontHealing(); //find test button again
-        assertTrue("The locator was heal", result);
+        assertTrue(result, "The locator was heal");
     }
 }

@@ -1,10 +1,11 @@
 package com.epam.sha.selenium;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import pages.AjaxLoadPage;
 import pages.MainPageWithFindBy;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class ElementsAndActions extends BaseTest {
 
@@ -14,11 +15,11 @@ public class ElementsAndActions extends BaseTest {
         //  Click on `Send Request` button
         mainPage.open().click();
         //  Check that spinner is displayed
-        assertTrue("Spinner is not displayed", mainPage.isLoadingSpinnerDisplayed());
+        assertTrue( mainPage.isLoadingSpinnerDisplayed(),"Spinner is not displayed");
         //  Wait for spinner to disappear
         mainPage.waitForLoadingSpinnerToDisappear();
         //  Check that spinner is not displayed
-        assertTrue("Content loaded is not displayed", mainPage.isLoadingContentDisplayed());
+        assertTrue(mainPage.isLoadingContentDisplayed(),"Content loaded is not displayed");
     }
 
     @Test
@@ -29,8 +30,8 @@ public class ElementsAndActions extends BaseTest {
         MainPageWithFindBy mainPage = new MainPageWithFindBy(driver).open();
         mainPage.hoverOnTestButton();
         String class_of_element = mainPage.getAttributeFromTestButton("class");
-        assertTrue("In the class not indicated that on the button hovered a cursor",
-                class_of_element.contains("button_hovered"));
+        assertTrue(class_of_element.contains("button_hovered"),
+                "In the class not indicated that on the button hovered a cursor");
     }
 
     @Test
@@ -40,8 +41,8 @@ public class ElementsAndActions extends BaseTest {
          */
         MainPageWithFindBy mainPage = new MainPageWithFindBy(driver).open();
         mainPage.clickButtonForInvisible();
-        assertTrue("The error while checking the invisibility of the element",
-                mainPage.checkThatButtonInvisible());
+        assertTrue(mainPage.checkThatButtonInvisible(),
+                "The error while checking the invisibility of the element");
     }
 
     @Test
@@ -51,8 +52,8 @@ public class ElementsAndActions extends BaseTest {
          */
         MainPageWithFindBy mainPage = new MainPageWithFindBy(driver).open();
         String text = mainPage.takeValueFromSecondButton();
-        assertTrue("The text doesn't match with the expected result",
-                text.equalsIgnoreCase("Second"));
+        assertTrue(text.equalsIgnoreCase("Second"),
+                "The text doesn't match with the expected result");
     }
 
 }
