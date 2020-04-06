@@ -4,8 +4,8 @@ package com.epam.sha.selenium;
 import com.epam.healenium.SelfHealingDriver;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,10 +15,10 @@ import java.util.concurrent.TimeUnit;
 
 
 public class BaseTest {
-    protected SelfHealingDriver driver;
+    static protected SelfHealingDriver driver;
 
-    @Before
-    public void setUp() {
+    @BeforeAll
+    static public void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.setHeadless(true);
         //declare delegate
@@ -31,8 +31,8 @@ public class BaseTest {
         driver.manage().window().setSize(new Dimension(1200, 800));
     }
 
-    @After
-    public void afterAll() {
+    @AfterAll
+    static public void afterAll() {
         if (driver != null) {
             driver.quit();
         }
